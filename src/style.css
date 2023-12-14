@@ -5,10 +5,10 @@
 }
 
 body {
-  font-family: system-ui, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif, sans-serif;
   color: black;
   background-color: white;
-  padding-top: 7rem;
+  /* padding-top: 7rem; */
 }
 
 img {
@@ -18,14 +18,129 @@ img {
 }
 
 header {
-  background-image: repeating-linear-gradient( 315deg, #3B3B3B, #3B3B3B 4px, #454545 7px, #454545 7px);
+  background-image: repeating-linear-gradient( 315deg, #3B3B3B, #3B3B3B 2px, #454545 4px, #454545 4px);
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
   justify-content: center;
+  padding: .5rem;
+  border-bottom: 3px solid #303030;
+
+  & .logo {
+    width: 180px;
+    height: min-content;
+  
+  }
+  
+  & .contact {
+    display: flex;
+    list-style: none;
+    gap: .5rem;
+    align-items: center;
+  }
 }
 
-header .logo {
-  width: 180px;
+header .contact li {
+  max-width: 20px;
   height: min-content;
+  background-color: transparent;
+}
 
+header .contact img {
+  filter: invert(100%);
+
+  &:hover {
+    filter: invert(70%) sepia(60%);
+  }
+}
+
+nav {
+  display: flexbox;
+  justify-content: space-between;
+  height: 5rem;
+  padding: 0 6rem;
+  font-weight: 500;
+  background-color: #303030;
+  color: #D0D0D0;
+  font-size: .95rem;
+  
+  & .menus {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    list-style: none;
+    height: 100%;
+    align-items: center;
+    
+    & li {
+      display: inline-flex;
+      position: relative;
+      cursor: pointer;
+      height: 100%;
+      align-items: center;
+    }
+
+    & li:has(span) > .expand-tit {
+      position: absolute;
+      display: flex;
+      border-radius: 3px;
+      background-color: #30303000;
+      visibility: hidden;
+      transform: translateY(4rem);
+      min-width: 10rem;
+      min-height: 5rem;
+      height: fit-content;
+      padding: 1rem;
+      gap: 2rem;
+      pointer-events: none;
+      transition: all .3s;
+
+      & div:nth-child(4) {
+        transform: translateX(-100%);
+      }
+    }
+    
+    & li:has(span):hover > .expand-tit {
+      visibility: visible;
+      transform: translateY(5rem);
+      background-color: #303030dd;
+      pointer-events: all;
+
+    }
+
+    & li:has(span) .expand-menu-part {
+      width: 12rem;
+    }
+
+    & li span::after {
+      padding: .4rem;
+      content: '›';
+      position: absolute;
+      transform: rotate(90deg) translateX(-10%);
+      font-size: .8rem;
+    }
+
+    & li span:hover::after {
+      padding: .4rem;
+      content: '×';
+      position: absolute;
+      transform: rotate(90deg) translate(-5%, 5%);
+      font-size: .6rem;
+    }
+  }
+  
+  
+  & .burguer {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  & a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  & .menus > *:hover {
+    color: white;
+    transition: all .2s;
+  }
 }

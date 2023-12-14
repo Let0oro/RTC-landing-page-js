@@ -1,22 +1,6 @@
 type imgAndName = { name: string; imgSrc?: string, src?: string };
 
 interface DBGLOBAL {
-  header: {
-    logo: {
-      img: string;
-      alt: string;
-    };
-    contact: {
-      fcbImg: string;
-      fcbAlt: string;
-      twitImg: string;
-      twitAlt: string;
-      instaImg: string;
-      instaAlt: string;
-      rssImg: string;
-      rssAlt: string;
-    };
-  };
   nav: {
     recursos: {
       recursos_para_escritores_I: Array<string>;
@@ -85,22 +69,6 @@ interface DBGLOBAL {
 }
 
 const dbGlobal: DBGLOBAL = {
-  header: {
-    logo: {
-      img: "https://www.escritores.org/images/logos/logo-escritoresorg-v1.png",
-      alt: "escritores.org logo",
-    },
-    contact: {
-      fcbImg: "https://www.svgrepo.com/show/3885/facebook.svg",
-      fcbAlt: "facebook logo",
-      twitImg: "https://www.svgrepo.com/show/513008/twitter-154.svg",
-      twitAlt: "twitter logo",
-      instaImg: "https://www.svgrepo.com/show/521711/instagram.svg",
-      instaAlt: "instagram logo",
-      rssImg: "https://www.svgrepo.com/show/532880/rss.svg",
-      rssAlt: "rss logo",
-    },
-  },
   nav: {
     recursos: {
       recursos_para_escritores_I: [
@@ -349,3 +317,5 @@ const dbGlobal: DBGLOBAL = {
     },
   },
 };
+
+export default dbGlobal;
