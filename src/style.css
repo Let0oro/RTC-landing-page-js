@@ -79,6 +79,20 @@ nav {
       align-items: center;
     }
 
+    & :is(li:nth-child(4), li:nth-child(4):hover) > .expand-tit {
+      display: flexbox;
+      margin: 0 auto;
+      translate: -40% 0;
+    }
+
+    & :is(li:nth-child(5), li:nth-child(5):hover) > .expand-tit {
+      display: block;
+
+      & > * {
+        text-transform: capitalize;
+      }
+    }
+    
     & li:has(span) > .expand-tit {
       position: absolute;
       display: flex;
@@ -94,8 +108,9 @@ nav {
       pointer-events: none;
       transition: all .3s;
 
-      & div:nth-child(4) {
-        transform: translateX(-100%);
+      & .expand-submenu {
+        display: flex;
+        flex-direction: column;
       }
     }
     
@@ -109,6 +124,8 @@ nav {
 
     & li:has(span) .expand-menu-part {
       width: 12rem;
+      display: flex;
+      flex-wrap: wrap;
     }
 
     & li span::after {

@@ -2,8 +2,6 @@ import db from '../db/database.ts';
 
 const { nav: navObj } = db;
 
-console.log();
-
 const titles = Object.keys(navObj);
 
 class navVar {
@@ -35,14 +33,43 @@ class navVar {
             let name = !!!isNaN(Number(parts[i])) ? obj[parts[i]].name : parts[i];
             const partElem = document.createElement('div');
             partElem.className = 'expand-menu-part';
+            const subObj = obj[name];
             name = String(name).replaceAll('_', ' ').toUpperCase();
-            partElem.appendChild(document.createElement('h2').appendChild(document.createTextNode(name)));
+            if (!!!isNaN(parts[i])) {
+                name = String(name).toLowerCase();
+                partElem.appendChild(document.createElement('p').appendChild(document.createTextNode(name)));
+            } else {
+                partElem.appendChild(document.createElement('h2').appendChild(document.createTextNode(name)));
+                this.addSubmenus(partElem, subObj);
+            }
             menu.appendChild(partElem);
         }
-        
-
 
         container.appendChild(menu);
+    }
+
+    static addSubmenus(menuContainer, obj) {
+        const subElem = document.createElement('div');
+        subElem.className = 'expand-submenu';
+        for (let i = 0; i < obj.length; i++) {
+            console.log(obj[i]);
+            let child = document.createElement('p')
+            if (typeof obj[i] !== 'string') {
+                const {imgSrc, name} = obj[i];
+                let imgEl = document.createElement('img');
+                imgEl.alt = name+'-logo';
+                imgEl.src = imgSrc;
+                child.appendChild(document.createElement('div').appendChild(imgEl)); 
+                child.appendChild(document.createTextNode(name)); 
+            } else {
+                child.appendChild(document.createTextNode(obj[i].name)); 
+            }
+            subElem.appendChild(child);
+
+        }
+
+
+        menuContainer.appendChild(subElem);
     }
 }
 
@@ -50,7 +77,7 @@ for (let i = 0; i < titles.length; i++){
     const name = titles[i], 
         className = titles[i].substring(0, 3) + '-title',
         src = navObj[titles[i]].src == null ? null : navObj[titles[i]].src,
-        obj = navObj[titles[i]]
+        obj = navObj[titles[i]];
     
     navVar.addTitle(name, className, src, obj)
 }
