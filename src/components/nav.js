@@ -52,17 +52,16 @@ class navVar {
         const subElem = document.createElement('div');
         subElem.className = 'expand-submenu';
         for (let i = 0; i < obj.length; i++) {
-            console.log(obj[i]);
             let child = document.createElement('p')
             if (typeof obj[i] !== 'string') {
                 const {imgSrc, name} = obj[i];
-                let imgEl = document.createElement('img');
-                imgEl.alt = name+'-logo';
+                const imgEl = document.createElement('img');
+                imgEl.alt = name.toLowerCase().split(' ').join('-')+'-logo';
                 imgEl.src = imgSrc;
                 child.appendChild(document.createElement('div').appendChild(imgEl)); 
                 child.appendChild(document.createTextNode(name)); 
             } else {
-                child.appendChild(document.createTextNode(obj[i].name)); 
+                child.appendChild(document.createTextNode(obj[i])); 
             }
             subElem.appendChild(child);
 
