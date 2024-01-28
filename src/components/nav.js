@@ -1,4 +1,5 @@
 import db from '../db/database.ts';
+import './nav.css';
 
 const { nav: navObj } = db;
 

@@ -26,7 +26,7 @@ interface DBGLOBAL {
     biografias: unknown;
     libros: unknown;
   };
-  main: {
+  body: {
     initialImg: string;
     secundaryImg: string;
     title: string;
@@ -186,7 +186,7 @@ const dbGlobal: DBGLOBAL = {
     biografias: {name: 'biografías', src: 'https://www.escritores.org/biografias'},
     libros: {name: 'libros', src: 'https://www.escritores.org/libros/'},
   },
-  main: {
+  body: {
     initialImg: "https://www.escritores.org/images/2019/11/27/header-home-escritores.jpg",
     secundaryImg: '../../assets/main_aid.svg',
     title: "Escritores.org",
