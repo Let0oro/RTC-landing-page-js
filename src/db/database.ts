@@ -46,6 +46,7 @@ interface DBGLOBAL {
     cursos: {
       date: string;
       dateText: string;
+      dateSrc: string;
       newCourses: Array<{
         name: string;
         description: string;
@@ -266,6 +267,7 @@ const dbGlobal: DBGLOBAL = {
     cursos: {
       date: '15/01/2024',
       dateText: "Inicio nuevas convocatorias",
+      dateSrc: "https://www.escritores.org/curso/cursos-informacion/pagina-de-inicio-cursos",
       newCourses: [
         {
           name: "OFICIOS DE LA EDICIÓN",

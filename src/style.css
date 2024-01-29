@@ -2,14 +2,19 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  -webkit-text-stroke: 1px transparent;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif, sans-serif;
   color: black;
   background-color: white;
-  /* padding-top: 7rem; */
-  /* background-color: #303030; */
+  scroll-behavior: smooth;
 }
 
 img {
@@ -18,6 +23,9 @@ img {
   background-size: cover;
 }
 
+a {
+  text-decoration: none;
+}
 
 header {
   background-image: repeating-linear-gradient( 315deg, #3B3B3B, #3B3B3B 2px, #454545 4px, #454545 4px);
@@ -53,5 +61,31 @@ header .contact img {
   &:hover {
     filter: invert(70%) sepia(60%);
   }
+}
+
+.arrow {
+  display: block;
+  position: relative;
+  position: fixed;
+  height: 15px;
+  width: 15px;
+  right: 2rem;
+  bottom: 1rem;
+  transform: rotate(45deg);
+  cursor: pointer;
+  border: 1.5px solid #999;
+  border-bottom: none;
+  border-right: none;
+  z-index: 99;
+}
+
+.arrow::before {
+  content: '';
+  position: absolute;
+  height: 200%;
+  width: 200%;
+  bottom: 0;
+  right: 0;
+  cursor: pointer;
 }
 

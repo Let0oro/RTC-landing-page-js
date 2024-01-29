@@ -1,5 +1,5 @@
 import db from "../db/database.ts";
-import "./body.css";
+import "./main.css";
 
 const { body: bodyObj } = db;
 
@@ -44,7 +44,7 @@ class Body {
   }
 
   static recommendedSections() {
-    const recomSections = document.querySelector(".recommended_sections");
+    const recomSections = document.querySelector(".recommended_cards");
     const { secciones_recomendadas } = bodyObj;
     secciones_recomendadas.forEach(
       ({ img, title, subtle, back: { text, linkText, linkSrc } }) => {
@@ -64,13 +64,15 @@ class Body {
                         <div class='card_back--top-img'>    
                         <img src="${img}"></img>
                         </div>
-                        <div card_back--top-text>    
+                        <div class='card_back--top-text'>    
                             <h4>${title}</h4>
                             <p>${subtle}</p>
                         </div>
                     </div>
-                    <p>${text}</p>
-                    <a href='${linkSrc}'>${linkText}</a>  
+                    <div class="card_back--text">
+                        ${text.map(v => `<p>${v}</p>`).join('\n')}
+                        <a href='${linkSrc}'>${linkText}</a>  
+                    </div>
                 </div>
             </div>
         `;
@@ -78,8 +80,42 @@ class Body {
       }
     );
   }
+
+  static courses() {
+    const {
+      appButtonImgSrc,
+      appButtonSrc,
+      appTitle,
+      date,
+      dateText,
+      dateSrc,
+      finalButton,
+      newCourses,
+    } = bodyObj.cursos;
+
+    const courseSection = document.querySelector('.courses');
+    courseSection.innerHTML = `
+    <h2>Cursos</h2>
+    <div class="courses_selection">
+        <a href="${dateSrc}">${date} - ${dateText.trim()}</a>
+        <div class='new_courses'>
+            ${newCourses.map(({name, description}, i) => (
+                `<p key="course-${i}"><span>${name.toUpperCase()}</span>: ${description}</p>`
+            )).join('\n')}
+        </div>
+        <a>${finalButton}</a>
+    </div>
+    <div class="courses_app">
+        <h3>${appTitle}</h3>
+        <a href="${appButtonSrc}">
+            <img src="${appButtonImgSrc}" alt="Google play Escritores.org"/>
+        </a>
+    </div>
+    `
+    
+  }
 }
 
-document.querySelector(".main_image");
 Body.mainImage();
 Body.recommendedSections();
+Body.courses();
