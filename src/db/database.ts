@@ -1,4 +1,4 @@
-type imgAndName = { name: string; imgSrc?: string, src?: string };
+type imgAndName = { name: string; imgSrc?: string; src?: string };
 
 interface DBGLOBAL {
   nav: {
@@ -59,13 +59,8 @@ interface DBGLOBAL {
   };
   footer: {
     secciones: Array<{ name: string; src: string }>;
-    datos_de_contacto: {
-      name: string;
-      cif: string;
-      email: string;
-      web: string;
-      copyright: string;
-    };
+    datos_de_contacto: Array<string>;
+    sub_footer: Array<string>
   };
 }
 
@@ -182,14 +177,21 @@ const dbGlobal: DBGLOBAL = {
       { name: "Maquetación eBooks", imgSrc: "str" },
       { name: "Maquetación Papel", imgSrc: "str" },
     ],
-    publicar: {name: 'publicar', src: 'https://www.escritores.org/publicar'},
-    empleo: {name: 'empleo', src: 'https://www.escritores.org/ibuscas-empleo'},
-    biografias: {name: 'biografías', src: 'https://www.escritores.org/biografias'},
-    libros: {name: 'libros', src: 'https://www.escritores.org/libros/'},
+    publicar: { name: "publicar", src: "https://www.escritores.org/publicar" },
+    empleo: {
+      name: "empleo",
+      src: "https://www.escritores.org/ibuscas-empleo",
+    },
+    biografias: {
+      name: "biografías",
+      src: "https://www.escritores.org/biografias",
+    },
+    libros: { name: "libros", src: "https://www.escritores.org/libros/" },
   },
   body: {
-    initialImg: "https://www.escritores.org/images/2019/11/27/header-home-escritores.jpg",
-    secundaryImg: '../../assets/main_aid.svg',
+    initialImg:
+      "https://www.escritores.org/images/2019/11/27/header-home-escritores.jpg",
+    secundaryImg: "../../assets/main_aid.svg",
     title: "Escritores.org",
     subtle: "Recursos para escritores",
     p1: "La página que necesitan todos los que se dedican a la creación literaria (I World)",
@@ -201,10 +203,11 @@ const dbGlobal: DBGLOBAL = {
         subtle: "Información - Bases completas",
         back: {
           text: [
-            'Accede a la página de referencia, con la más completa información sobre convocatorias de Concursos Literarios. Semanalmente informamos de más de 100 convocatorias (España y Latinoamérica).',
+            "Accede a la página de referencia, con la más completa información sobre convocatorias de Concursos Literarios. Semanalmente informamos de más de 100 convocatorias (España y Latinoamérica).",
           ],
           linkText: "Acceder",
-          linkSrc: "https://www.escritores.org/concursos/concursos-1/concursos-literarios",
+          linkSrc:
+            "https://www.escritores.org/concursos/concursos-1/concursos-literarios",
         },
       },
       {
@@ -213,11 +216,12 @@ const dbGlobal: DBGLOBAL = {
         subtle: "15/01/2024 - Inicio nuevas convocatorias",
         back: {
           text: [
-            'OFICIOS DE LA EDICIÓN: correctores, lectores, traductores..',
-            'CREACIÓN LITERARIA: novela, cuento, poesía, redacción...',
+            "OFICIOS DE LA EDICIÓN: correctores, lectores, traductores..",
+            "CREACIÓN LITERARIA: novela, cuento, poesía, redacción...",
           ],
           linkText: "Más información",
-          linkSrc: "https://www.escritores.org/curso/cursos-informacion/pagina-de-inicio-cursos",
+          linkSrc:
+            "https://www.escritores.org/curso/cursos-informacion/pagina-de-inicio-cursos",
         },
       },
       {
@@ -225,7 +229,7 @@ const dbGlobal: DBGLOBAL = {
         title: "Biografías",
         subtle: "Biografías de escritores",
         back: {
-          text: ['Biografías de escritores'],
+          text: ["Biografías de escritores"],
           linkText: "Ir a la sección",
           linkSrc: "https://www.escritores.org/biografias",
         },
@@ -236,11 +240,12 @@ const dbGlobal: DBGLOBAL = {
         subtle: "Recursos para escritores",
         back: {
           text: [
-            'Recursos para escritores',
-            'Agentes, editoriales, asociaciones, becas, orientación legal...',
+            "Recursos para escritores",
+            "Agentes, editoriales, asociaciones, becas, orientación legal...",
           ],
           linkText: "Ir a la sección",
-          linkSrc: "https://www.escritores.org/component/sppagebuilder/?view=page&id=65&Itemid=0",
+          linkSrc:
+            "https://www.escritores.org/component/sppagebuilder/?view=page&id=65&Itemid=0",
         },
       },
       {
@@ -248,7 +253,9 @@ const dbGlobal: DBGLOBAL = {
         title: "Publicar",
         subtle: "¿Buscas publicar?",
         back: {
-          text: ['Si deseas publicar, a poder ser con alguna repercusión, y no eres millonario o personaje mediático, te adjuntamos este informe que entendemos puede resultar de interés para ahorrarte tiempo, dinero y alguna desilusión.'],
+          text: [
+            "Si deseas publicar, a poder ser con alguna repercusión, y no eres millonario o personaje mediático, te adjuntamos este informe que entendemos puede resultar de interés para ahorrarte tiempo, dinero y alguna desilusión.",
+          ],
           linkText: "Acceder",
           linkSrc: "https://www.escritores.org/publicar",
         },
@@ -258,16 +265,19 @@ const dbGlobal: DBGLOBAL = {
         title: "Libros",
         subtle: "Publicita tus libros y perfil personal",
         back: {
-          text: ['Diariamente consultan nuestra página miles de personas. Publicita, sin coste alguno, tus libros y tu perfil personal.'],
+          text: [
+            "Diariamente consultan nuestra página miles de personas. Publicita, sin coste alguno, tus libros y tu perfil personal.",
+          ],
           linkText: "Más información",
           linkSrc: "https://www.escritores.org/libros/",
         },
       },
     ],
     cursos: {
-      date: '15/01/2024',
+      date: "15/01/2024",
       dateText: "Inicio nuevas convocatorias",
-      dateSrc: "https://www.escritores.org/curso/cursos-informacion/pagina-de-inicio-cursos",
+      dateSrc:
+        "https://www.escritores.org/curso/cursos-informacion/pagina-de-inicio-cursos",
       newCourses: [
         {
           name: "OFICIOS DE LA EDICIÓN",
@@ -310,13 +320,20 @@ const dbGlobal: DBGLOBAL = {
       },
       { name: "Libros", src: "https://www.escritores.org/libros/" },
     ],
-    datos_de_contacto: {
-      name: "Escritores.org",
-      cif: "CIF:  B61195087",
-      email: "Email: info@escritores.org",
-      web: "Web: www.escritores.org",
-      copyright: "© 1996 - 2023",
-    },
+    datos_de_contacto: [
+      "Escritores.org",
+      "CIF:  B61195087",
+      "Email: info@escritores.org",
+      "Web: www.escritores.org",
+      "© 1996 - 2023",
+    ],
+    sub_footer: [
+      "Boletín Informativo",
+      "Propiedad Intelectual",
+      '"Cookies"',
+      "Privacidad",
+      "Uso y Contratación",
+    ],
   },
 };
 

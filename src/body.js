@@ -1,6 +1,6 @@
 import './components/nav.js';
 import './components/main.js';
-
+import './components/footer.js'
 
 const arrow = document.querySelector('.arrow');
 window.addEventListener('scroll', () => {

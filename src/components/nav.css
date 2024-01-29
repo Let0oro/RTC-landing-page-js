@@ -7,6 +7,9 @@ nav {
     background-color: #303030;
     color: #D0D0D0;
     font-size: .95rem;
+    position: sticky;
+    top: -1px;
+    z-index: 100;
     
     & .menus {
       display: flex;
