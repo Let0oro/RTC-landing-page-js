@@ -16,7 +16,7 @@ class Footer {
     arrElem.map((elem, index) => {
         elem.innerHTML = 
         `
-        <h4>${['Secciones', 'Datos de contacto'][index]}</h4>
+        <small>${['Secciones', 'Datos de contacto'][index]}</small>
         <ul>
         ${objects[index]
             .map(li => !!index ? (`<li>${li}</li>`) : (`<li><a href="${li.src}">${li.name}</a></li>`))
@@ -30,11 +30,14 @@ class Footer {
 
   static subFooter() {
     const { sub_footer: subf } = footObj;
-    foot.appendChild(
+    const subfootDiv = document.createElement('article');
+    subfootDiv.className = 'subfoot'
+    subfootDiv.appendChild(
       document
         .createElement("p")
         .appendChild(document.createTextNode(`${subf.join(" | ")}`))
     );
+    foot.appendChild(subfootDiv);
   }
 }
 

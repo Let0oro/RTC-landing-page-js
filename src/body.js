@@ -10,3 +10,5 @@ window.addEventListener('scroll', () => {
         arrow.style.display = 'none';
     }
 });
+
+document.querySelectorAll('img').loading = 'lazy';

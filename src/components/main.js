@@ -11,33 +11,35 @@ class Body {
     const imgDiv = document.createElement("div");
     imgDiv.className = "main_image-back";
     const fImg = document.createElement("img");
+    fImg.className = 'main_image-back__hand'
     fImg.src = initialImg;
     fImg.alt = "hand writing";
     const sImg = document.createElement("img");
+    sImg.className = 'main_image-back__paper'
     sImg.src = secundaryImg;
     sImg.alt = "broken page";
-    imgDiv.appendChild(...[fImg, sImg]);
+    [fImg, sImg].forEach(i => imgDiv.appendChild(i));
     firstChild.appendChild(imgDiv);
     // Creación de div de títulos y párrafo
     const textDiv = document.createElement("div");
     textDiv.className = "main_image-text";
     // Creamos div interno para títulos
     const titleDiv = document.createElement("div");
-    titleDiv.appendChild(
-      document.createElement("h3").appendChild(document.createTextNode(title))
-    );
-    titleDiv.appendChild(
-      document.createElement("p").appendChild(document.createTextNode(subtle))
-    );
+    const h3 = document.createElement('h3')
+    h3.appendChild(document.createTextNode(title))
+    titleDiv.appendChild(h3);
+    const p = document.createElement('p')
+    p.appendChild(document.createTextNode(subtle))
+    titleDiv.appendChild(p);
     textDiv.appendChild(titleDiv);
     // Creamos div interno para párrafos
     const pharafDiv = document.createElement("div");
-    pharafDiv.appendChild(
-      document.createElement("p").appendChild(document.createTextNode(p1))
-    );
-    pharafDiv.appendChild(
-      document.createElement("p").appendChild(document.createTextNode(p2))
-    );
+    const phrP1 = document.createElement('p');
+    phrP1.appendChild(document.createTextNode(p1))
+    const phrP2 = document.createElement('p');
+    phrP2.appendChild(document.createTextNode(p2))
+    pharafDiv.appendChild(phrP1);
+    pharafDiv.appendChild(phrP2);
     textDiv.appendChild(pharafDiv);
     // Añadimos todos los archivos al body
     firstChild.appendChild(textDiv);
